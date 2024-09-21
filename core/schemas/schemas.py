@@ -13,3 +13,19 @@ class GetFile:
      status: str | None = None
      
      
+     
+@dataclass
+class GetDomain:
+     results: dict
+     creation_date: int
+     whois: str
+     analysis_stats: dict
+     
+     
+     
+@dataclass
+class RescaneDomain:
+     results: dict
+     stats: dict
+     date: int
+     

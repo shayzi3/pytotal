@@ -1,8 +1,8 @@
 import httpx
 
-from core.utils.schemas.schemas import GetFile
+from core.schemas.schemas import GetFile
 from core.utils.exception import RequestError
-from core.utils.schemas.enums import Mode
+from core.schemas.enums import Mode
 
 
 
@@ -85,6 +85,9 @@ class RequestFiles:
           
           async with httpx.AsyncClient() as session:
                response = await session.post(url, headers=self.__headers)
+               
+               if response.status_code != 200:
+                    raise RequestError(f'failed to complete request - {response.text}')
                
                links = response.json()['data']['links']['self']
                links_response = await session.get(links, headers=self.__headers)

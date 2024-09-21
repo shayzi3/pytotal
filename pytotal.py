@@ -1,6 +1,6 @@
 
-
 from methods.files import Files
+from methods.domains import Domains
 
 
 
@@ -18,8 +18,8 @@ class PyTotal:
      
      
      @property
-     def domain(self) -> None:
-          return
+     def domain(self) -> Domains:
+          return Domains(self.__api)
      
      
      @property

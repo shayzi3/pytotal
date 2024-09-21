@@ -1,8 +1,8 @@
 
 from core.request.request_files import RequestFiles
 from core.utils.files_util import FilesUtil
-from core.utils.schemas.schemas import GetFile
-from core.utils.schemas.enums import Mode
+from core.schemas.schemas import GetFile
+from core.schemas.enums import Mode
 
 
 
@@ -35,7 +35,7 @@ class Files(RequestFiles):
               
 
           Returns:
-              dict: dict keeping info about analysis of file or class
+              dict | GetFile
           """
           if password_archive:
                password_archive = {'password': password_archive}
@@ -63,7 +63,7 @@ class Files(RequestFiles):
               mode (Mode | None) = None: For output class(File) or dict. Mode.CLASS or Mode.DICT
               
           Returns:
-               dict: info about file or class
+               dict | GetFile
           """
           return await self._request_get_file_report(
                id=id,
@@ -83,7 +83,7 @@ class Files(RequestFiles):
               mode (Mode | None) = None: For output class(File) or dict. Mode.CLASS or Mode.DICT
 
           Returns:
-              dict: info about file or class
+              dict | GetFile
           """
           
           return await self._request_rescane_file(

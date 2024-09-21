@@ -23,9 +23,23 @@ class GetDomain:
      
      
      
+     
 @dataclass
 class RescaneDomain:
      results: dict
      stats: dict
      date: int
+     
+     
+     
+@dataclass
+class GetIP:
+     stats: dict
+     country: str
+     whois: str
+     as_owner: str
+     continent: str
+     results: dict
+     
+     
      

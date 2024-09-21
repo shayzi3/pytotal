@@ -1,6 +1,7 @@
 
 from methods.files import Files
 from methods.domains import Domains
+from methods.ip import IP
 
 
 
@@ -23,8 +24,9 @@ class PyTotal:
      
      
      @property
-     def ip(self) -> None:
-          return
+     def ip(self) -> IP:
+          return IP(self.__api)
+
      
      
      @property

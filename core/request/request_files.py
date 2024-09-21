@@ -1,8 +1,8 @@
 import httpx
 
-from core.utils.schemas import GetFile
+from core.utils.schemas.schemas import GetFile
 from core.utils.exception import RequestError
-from core.utils.enums import Mode
+from core.utils.schemas.enums import Mode
 
 
 

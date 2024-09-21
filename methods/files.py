@@ -1,8 +1,8 @@
 
-from core.request_files import RequestFiles
+from core.request.request_files import RequestFiles
 from core.utils.files_util import FilesUtil
-from core.utils.schemas import GetFile
-from core.utils.enums import Mode
+from core.utils.schemas.schemas import GetFile
+from core.utils.schemas.enums import Mode
 
 
 

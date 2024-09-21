@@ -2,9 +2,20 @@ import os
 import httpx
 
 
+
 class FilesUtil:
+     __slots__ = (
+          '__headers'
+     )
      
-     async def _check_size(self, path: str, api: str):
+     def __init__(self, api: str) -> None:
+          self.__headers = {
+               "accept": "application/json",
+               "x-apikey": api
+          }
+     
+     
+     async def _check_size(self, path: str):
           url = "https://www.virustotal.com/api/v3/files"
           
           size = (os.path.getsize(path) // (1024**2))
@@ -12,18 +23,13 @@ class FilesUtil:
                raise MemoryError('Max size 650mb')
           
           if size > 32 and size < 650:
-               url = await self.__get_new_url(api)
+               url = await self.__get_new_url()
           return url
      
      
-     
-     async def __get_new_url(self, api: str) -> str:
+     async def __get_new_url(self) -> str:
           url = 'https://www.virustotal.com/api/v3/files/upload_url'
           
-          headers = {
-               "accept": "application/json",
-               "x-apikey": api 
-          }
           async with httpx.AsyncClient() as session:
-               response = await session.get(url, headers=headers)
+               response = await session.get(url, headers=self.__headers)
           return response.json()['data']

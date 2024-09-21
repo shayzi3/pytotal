@@ -53,6 +53,10 @@ class Urls:
           
           async with httpx.AsyncClient() as session:
                response = await session.get(url, headers=self.__headers)
+               
+               
+               with open('url.json', 'w') as f:
+                    f.write(json.dumps(response.json(), indent=2))
           return response.json()
      
      
@@ -75,4 +79,7 @@ class Urls:
                
                links = response.json()['data']['links']['self']
                links_response = await session.get(links, headers=self.__headers)
+               
+               with open('url.json', 'w') as f:
+                    f.write(json.dumps(links_response.json(), indent=2))
           return links_response.json()

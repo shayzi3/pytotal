@@ -42,4 +42,8 @@ class GetIP:
      results: dict
      
      
-     
+@dataclass
+class GetUrl:
+     stats: dict
+     results: dict
+     id: int

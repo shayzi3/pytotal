@@ -2,7 +2,7 @@
 from methods.files import Files
 from methods.domains import Domains
 from methods.ip import IP
-
+from methods.urls import Url
 
 
 class PyTotal:
@@ -30,5 +30,5 @@ class PyTotal:
      
      
      @property
-     def url(self) -> None:
-          return
+     def url(self) -> Url:
+          return Url(self.__api)

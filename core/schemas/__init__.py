@@ -1,7 +1,9 @@
 from .schemas import (
      GetDomain,
      RescaneDomain,
-     GetFile
+     GetFile,
+     GetUrl,
+     GetIP
 )
 from .enums import Mode
 
@@ -10,5 +12,7 @@ __all__ = [
      'GetFile',
      'Mode',
      'GetDomain',
-     'RescaneDomain'
+     'RescaneDomain',
+     'GetUrl',
+     'GetIP'
 ]
